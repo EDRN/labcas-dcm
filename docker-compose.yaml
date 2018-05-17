@@ -18,8 +18,8 @@ services:
       - "389:389"
     env_file: docker-compose.env
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
+      #- /etc/timezone:/etc/timezone:ro
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/ldap:/var/lib/ldap
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/slapd.d:/etc/ldap/slapd.d
   db:
@@ -32,8 +32,8 @@ services:
       - "5432:5432"
     env_file: docker-compose.env
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
+      #- /etc/timezone:/etc/timezone:ro
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/db:/var/lib/postgresql/data
   arc:
     image: dcm4che/dcm4chee-arc-psql:5.13.1
@@ -55,7 +55,7 @@ services:
       - ldap
       - db
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
+      #- /etc/timezone:/etc/timezone:ro
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/wildfly:/opt/wildfly/standalone
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/storage:/storage
