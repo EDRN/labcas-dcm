@@ -10,7 +10,7 @@ version: "3"
 services:
   ldap:
     image: dcm4che/slapd-dcm4chee:2.4.44-13.1
-    name: dcm4che-ldap
+    container_name: dcm4che-ldap
     logging:
       driver: json-file
       options:
@@ -25,7 +25,7 @@ services:
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/slapd.d:/etc/ldap/slapd.d
   db:
     image: dcm4che/postgres-dcm4chee:10.0-13
-    name: dcm4che-postgres
+    container_name: dcm4che-postgres
     logging:
       driver: json-file
       options:
@@ -39,7 +39,7 @@ services:
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/db:/var/lib/postgresql/data
   arc:
     image: dcm4che/dcm4chee-arc-psql:5.13.1
-    name: dcm4che-arc
+    container_name: dcm4che-arc
     logging:
       driver: json-file
       options:
