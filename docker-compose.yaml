@@ -7,7 +7,9 @@
 #STORAGE_DIR=/storage
 
 version: "3"
+
 services:
+ 
   ldap:
     image: dcm4che/slapd-dcm4chee:2.4.44-13.1
     container_name: dcm4che-ldap
@@ -23,6 +25,7 @@ services:
       #- /etc/timezone:/etc/timezone:ro
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/ldap:/var/lib/ldap
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/slapd.d:/etc/ldap/slapd.d
+  
   db:
     image: dcm4che/postgres-dcm4chee:10.0-13
     container_name: dcm4che-postgres
@@ -37,6 +40,7 @@ services:
       #- /etc/localtime:/etc/localtime:ro
       #- /etc/timezone:/etc/timezone:ro
       - $LABCAS_DCM4CHEE_ARCHIVE_DIR/db:/var/lib/postgresql/data
+  
   arc:
     image: dcm4che/dcm4chee-arc-psql:5.13.1
     container_name: dcm4che-arc
